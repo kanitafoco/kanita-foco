@@ -1,0 +1,230 @@
+/* ===========================
+   URBANSTEP SHOE SHOP THEME
+   =========================== */
+
+   :root {
+    --brand: #222831;
+    --accent: #00adb5;
+    --light: #f8f9fa;
+    --dark: #1b1f22;
+    --text: #333;
+  }
+  
+  /* GLOBAL RESET */
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fff;
+  }
+  
+  main {
+    flex: 1;
+    padding-bottom: 2rem;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-weight: 600;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    background-color: var(--dark) !important;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: var(--accent) !important;
+  }
+  
+  .navbar .nav-link {
+    color: #ccc !important;
+    margin: 0 0.5rem;
+    transition: color 0.2s ease;
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar .nav-link.nav-active {
+    color: var(--accent) !important;
+    font-weight: 600;
+  }
+  
+  .btn-light, .btn-outline-light {
+    border-radius: 30px;
+    font-weight: 500;
+  }
+  
+  /* HERO SECTION */
+  .hero {
+    background: linear-gradient(90deg, var(--brand) 0%, var(--accent) 100%);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 3rem 2rem;
+    text-align: left;
+    overflow: hidden;
+  }
+  
+  .hero img {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  
+  .hero .btn {
+    border-radius: 30px;
+    padding: 0.6rem 1.6rem;
+    font-size: 1rem;
+  }
+  
+  /* CARDS (Products, Categories, Services) */
+  .card {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+  }
+  
+  .card img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    object-fit: cover;
+    height: 220px;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* FORMS */
+  .form-card {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  
+  .form-control,
+  .form-select {
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.25);
+    border-color: var(--accent);
+  }
+  
+  /* TABLES */
+  .table {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table thead {
+    background-color: var(--accent);
+    color: white;
+  }
+  
+  .table tbody tr:hover {
+    background-color: rgba(0, 173, 181, 0.1);
+  }
+  
+  /* FOOTER */
+  footer {
+    background-color: var(--dark);
+    color: #aaa;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  footer span {
+    color: var(--accent);
+  }
+  
+  /* LIST GROUPS (Reviews) */
+  .list-group-item {
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .text-warning {
+    letter-spacing: 1px;
+  }
+  
+  /* AVATARS / PROFILE */
+  .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+  }
+  
+  /* RESPONSIVE TWEAKS */
+  @media (max-width: 768px) {
+    .hero {
+      text-align: center;
+    }
+  
+    .hero img {
+      margin-top: 1rem;
+    }
+  
+    .navbar-brand {
+      font-size: 1.1rem;
+    }
+  
+    .btn {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* CUSTOM UTILITIES */
+  .nav-active {
+    color: var(--accent) !important;
+    font-weight: 600;
+  }
+  
+  .text-accent {
+    color: var(--accent);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent) !important;
+  }
+  
+  .shadow-sm {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* BUTTONS */
+  .btn-primary {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+  
+  .btn-primary:hover {
+    background-color: #039ca2;
+    border-color: #039ca2;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  /* ALERTS */
+  .alert-success {
+    border-left: 5px solid var(--accent);
+    background-color: #e8f9fa;
+    color: var(--text);
+  }
+  

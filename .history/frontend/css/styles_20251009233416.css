@@ -1,0 +1,296 @@
+/* =======================================
+   URBANSTEP LUXE SHOE STORE THEME
+   Minimal, elegant & fashion inspired
+   ======================================= */
+
+   :root {
+    --primary: #d4af37; /* gold */
+    --secondary: #e3d5b8; /* soft beige */
+    --dark: #111; /* black base */
+    --light: #fafafa;
+    --gray: #777;
+    --white: #fff;
+    --transition: all 0.3s ease;
+    --radius: 14px;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+  
+  /* ==========================
+     NAVIGATION
+  ========================== */
+  .navbar {
+    background-color: var(--white) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid var(--secondary);
+  }
+  
+  .navbar-brand {
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--dark) !important;
+    letter-spacing: 1px;
+  }
+  
+  .navbar .nav-link {
+    color: var(--dark) !important;
+    font-weight: 500;
+    margin: 0 0.7rem;
+    position: relative;
+    transition: var(--transition);
+  }
+  
+  .navbar .nav-link:hover {
+    color: var(--primary) !important;
+  }
+  
+  .navbar .nav-link.nav-active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    border-radius: 2px;
+  }
+  
+  /* ==========================
+     HERO (HOME PAGE)
+  ========================== */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: linear-gradient(110deg, var(--dark) 50%, var(--secondary) 50%);
+    color: var(--white);
+    padding: 4rem 2rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+  
+  .hero .content {
+    flex: 1 1 45%;
+    z-index: 2;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero .btn {
+    border-radius: 40px;
+    padding: 0.75rem 1.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: var(--transition);
+  }
+  
+  .hero .btn-primary {
+    background-color: var(--primary);
+    border: none;
+    color: var(--dark);
+  }
+  
+  .hero .btn-primary:hover {
+    background-color: #c39a2d;
+  }
+  
+  .hero .btn-outline-light {
+    color: var(--white);
+    border: 2px solid var(--white);
+  }
+  
+  .hero .btn-outline-light:hover {
+    background-color: var(--white);
+    color: var(--dark);
+  }
+  
+  .hero img {
+    flex: 1 1 45%;
+    max-width: 500px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ==========================
+     PRODUCT CARDS
+  ========================== */
+  .card {
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card img {
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    height: 230px;
+    object-fit: cover;
+  }
+  
+  .card h5 {
+    font-weight: 600;
+    color: var(--dark);
+  }
+  
+  .card .btn {
+    border-radius: 30px;
+    background-color: var(--primary);
+    color: var(--dark);
+    border: none;
+    transition: var(--transition);
+  }
+  
+  .card .btn:hover {
+    background-color: #c39a2d;
+  }
+  
+  /* ==========================
+     FORMS (Login, Register, Contact)
+  ========================== */
+  .form-card {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  
+  .form-label {
+    font-weight: 600;
+    color: var(--dark);
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 0.7rem 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  }
+  
+  /* ==========================
+     TABLES (Orders)
+  ========================== */
+  .table {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .table thead {
+    background-color: var(--primary);
+    color: var(--dark);
+    font-weight: 600;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #fff6d8;
+  }
+  
+  /* ==========================
+     REVIEWS
+  ========================== */
+  .list-group-item {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+    background-color: var(--white);
+  }
+  
+  /* ==========================
+     PROFILE
+  ========================== */
+  .avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+  }
+  
+  .profile-card {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  }
+  
+  /* ==========================
+     FOOTER
+  ========================== */
+  footer {
+    background-color: var(--dark);
+    color: #ccc;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  footer span {
+    color: var(--primary);
+  }
+  
+  /* ==========================
+     RESPONSIVE
+  ========================== */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      background: linear-gradient(160deg, var(--dark) 60%, var(--secondary) 40%);
+    }
+  
+    .hero img {
+      order: -1;
+      max-width: 100%;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .navbar-brand {
+      font-size: 1.3rem;
+    }
+  }
+  

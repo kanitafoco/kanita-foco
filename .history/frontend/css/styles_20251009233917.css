@@ -1,0 +1,294 @@
+/* =======================================
+   URBANSTEP FRESH MODE THEME
+   Color palette: teal + lavender + taupe
+   ======================================= */
+
+   :root {
+    --primary: #6cc3b2;      /* soft teal */
+    --secondary: #c6b1d9;    /* lavender */
+    --accent: #e8dcb5;       /* light beige tone */
+    --dark-gray: #2f3133;    /* deep graphite gray */
+    --mid-gray: #44474a;     /* medium neutral */
+    --text: #e4e4e4;         /* light gray text */
+    --muted: #a5a5a5;
+    --radius: 14px;
+    --transition: all 0.3s ease;
+  }
+  
+  /* ==========================
+     GENERAL LAYOUT
+  ========================== */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(140deg, var(--dark-gray), var(--mid-gray));
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+  
+  /* ==========================
+     NAVIGATION
+  ========================== */
+  .navbar {
+    background-color: var(--mid-gray) !important;
+    border-bottom: 2px solid var(--primary);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  .navbar-brand {
+    color: var(--primary) !important;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .navbar .nav-link {
+    color: var(--text) !important;
+    margin: 0 0.6rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar .nav-link.nav-active {
+    color: var(--secondary) !important;
+  }
+  
+  .navbar .btn {
+    border-radius: 30px;
+    font-weight: 500;
+    padding: 0.4rem 1.1rem;
+    background: var(--primary);
+    border: none;
+    color: var(--dark-gray);
+  }
+  
+  .navbar .btn:hover {
+    background: var(--secondary);
+  }
+  
+  /* ==========================
+     HERO SECTION
+  ========================== */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: linear-gradient(100deg, var(--mid-gray) 40%, var(--secondary) 60%);
+    padding: 4rem 2rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+    color: var(--text);
+  }
+  
+  .hero .content {
+    flex: 1 1 45%;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero .btn {
+    border-radius: 40px;
+    padding: 0.7rem 1.6rem;
+    font-weight: 600;
+    border: none;
+    transition: var(--transition);
+    margin-right: 0.6rem;
+  }
+  
+  .hero .btn-primary {
+    background-color: var(--primary);
+    color: var(--dark-gray);
+  }
+  
+  .hero .btn-primary:hover {
+    background-color: var(--secondary);
+  }
+  
+  .hero .btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--text);
+  }
+  
+  .hero .btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--dark-gray);
+  }
+  
+  .hero img {
+    flex: 1 1 45%;
+    max-width: 480px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* ==========================
+     PRODUCT CARDS
+  ========================== */
+  .card {
+    background-color: var(--mid-gray);
+    border-radius: var(--radius);
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card img {
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    height: 240px;
+    object-fit: cover;
+  }
+  
+  .card h5 {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .card p {
+    color: var(--text);
+  }
+  
+  .card .btn {
+    border-radius: 25px;
+    background-color: var(--secondary);
+    border: none;
+    font-weight: 600;
+    color: var(--dark-gray);
+    transition: var(--transition);
+  }
+  
+  .card .btn:hover {
+    background-color: var(--primary);
+  }
+  
+  /* ==========================
+     FORMS (Login/Register/Contact)
+  ========================== */
+  .form-card {
+    background-color: var(--mid-gray);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  
+  .form-label {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    border: 1px solid var(--secondary);
+    background-color: var(--dark-gray);
+    color: var(--text);
+    padding: 0.7rem 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 195, 178, 0.3);
+  }
+  
+  /* ==========================
+     REVIEWS - New Layout
+  ========================== */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .review-card {
+    background-color: var(--mid-gray);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .review-card h5 {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  
+  .review-meta {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  
+  .review-text {
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+  
+  .stars {
+    color: var(--primary);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ==========================
+     FOOTER
+  ========================== */
+  footer {
+    background-color: var(--mid-gray);
+    color: var(--accent);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* ==========================
+     RESPONSIVE
+  ========================== */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero img {
+      order: -1;
+      max-width: 100%;
+    }
+  
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+  }
+  

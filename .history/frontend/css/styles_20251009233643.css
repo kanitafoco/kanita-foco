@@ -1,0 +1,299 @@
+/* =======================================
+   URBANSTEP DARK LUXE THEME
+   Premium footwear look — no white tones
+   ======================================= */
+
+   :root {
+    --primary: #c2a14b; /* warm gold accent */
+    --dark-bg: #181a1b; /* main dark background */
+    --dark-card: #202325; /* slightly lighter for cards */
+    --text: #e2e2e2; /* soft gray text */
+    --muted: #9b9b9b; /* subtle secondary text */
+    --accent-bg: #2b2f31;
+    --transition: all 0.25s ease;
+    --radius: 12px;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+  
+  /* ==========================
+     NAVBAR
+  ========================== */
+  .navbar {
+    background-color: var(--accent-bg) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .navbar-brand {
+    color: var(--primary) !important;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+  
+  .navbar .nav-link {
+    color: var(--text) !important;
+    margin: 0 0.6rem;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar .nav-link.nav-active {
+    color: var(--primary) !important;
+  }
+  
+  .navbar .btn {
+    border-radius: 30px;
+    padding: 0.4rem 1.2rem;
+    font-weight: 500;
+  }
+  
+  /* ==========================
+     HERO (HOME PAGE)
+  ========================== */
+  .hero {
+    background: linear-gradient(145deg, #1a1d1f 50%, #2e3234 50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+  
+  .hero .content {
+    flex: 1 1 45%;
+  }
+  
+  .hero h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    color: var(--primary);
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero .btn {
+    border-radius: 30px;
+    padding: 0.7rem 1.6rem;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-right: 0.8rem;
+  }
+  
+  .hero .btn-primary {
+    background-color: var(--primary);
+    border: none;
+    color: #121212;
+  }
+  
+  .hero .btn-primary:hover {
+    background-color: #af8f3e;
+  }
+  
+  .hero .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--primary);
+  }
+  
+  .hero .btn-outline:hover {
+    background-color: var(--primary);
+    color: #121212;
+  }
+  
+  .hero img {
+    flex: 1 1 45%;
+    max-width: 480px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* ==========================
+     PRODUCT CARDS
+  ========================== */
+  .card {
+    background-color: var(--dark-card);
+    border: none;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card img {
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    height: 230px;
+    object-fit: cover;
+  }
+  
+  .card h5 {
+    color: var(--text);
+    font-weight: 600;
+  }
+  
+  .card .btn {
+    background-color: var(--primary);
+    border: none;
+    color: #111;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+  
+  .card .btn:hover {
+    background-color: #af8f3e;
+  }
+  
+  /* ==========================
+     FORMS (Login / Register)
+  ========================== */
+  .form-card {
+    background-color: var(--dark-card);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  
+  .form-label {
+    color: var(--text);
+    font-weight: 600;
+  }
+  
+  .form-control,
+  .form-select {
+    background-color: #2a2d2f;
+    border: 1px solid #3a3d3f;
+    border-radius: 10px;
+    color: var(--text);
+    padding: 0.7rem 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(194, 161, 75, 0.2);
+  }
+  
+  /* ==========================
+     NEW REVIEWS SECTION
+  ========================== */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .review-card {
+    background-color: var(--dark-card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+  }
+  
+  .review-card:hover {
+    transform: translateY(-6px);
+  }
+  
+  .review-card h5 {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  
+  .review-card p {
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+  
+  .review-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+  
+  .stars {
+    color: #f5c518;
+    letter-spacing: 1px;
+  }
+  
+  /* ==========================
+     PROFILE
+  ========================== */
+  .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+  }
+  
+  .profile-card {
+    background-color: var(--dark-card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* ==========================
+     FOOTER
+  ========================== */
+  footer {
+    background-color: #141516;
+    color: var(--muted);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  footer span {
+    color: var(--primary);
+  }
+  
+  /* ==========================
+     RESPONSIVE
+  ========================== */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero img {
+      order: -1;
+      max-width: 100%;
+    }
+  
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+  }
+  

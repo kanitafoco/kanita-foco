@@ -1,0 +1,8 @@
+Place images used by the frontend here (optional). Recommended filenames:
+- hero-barber.jpg
+- barber1.jpg
+- barber2.jpg
+- barber3.jpg
+- user-placeholder.png
+
+These are optional; the SPA will still run without them but images may appear broken if they are missing.
