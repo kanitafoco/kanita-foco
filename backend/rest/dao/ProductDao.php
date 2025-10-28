@@ -1,16 +1,26 @@
 <?php
-require_once 'BaseDao.php';
+require_once 'BaseDAO.php';
 
-class ProductDao extends BaseDao {
+class ProductDAO extends BaseDAO {
     public function __construct() {
-        parent::__construct("products");
+        parent::__construct('products');
     }
 
-    public function getByCategory($category_id) {
-        $stmt = $this->connection->prepare("SELECT * FROM products WHERE category_id = :category_id");
-        $stmt->bindParam(':category_id', $category_id);
-        $stmt->execute();
-        return $stmt->fetchAll();
+    public function create($data) {
+        return $this->add($data);
+    }
+
+    public function updateProduct($id, $data) {
+        return $this->update($data, $id, 'product_id');
+    }
+
+    public function getByCategory($categoryId) {
+        return $this->query("SELECT * FROM {$this->table_name} WHERE category_id = :category_id", ['category_id' => $categoryId]);
+    }
+
+    public function search($term) {
+        $param = '%' . $term . '%';
+        return $this->query("SELECT * FROM {$this->table_name} WHERE name LIKE :term OR description LIKE :term", ['term' => $param]);
     }
 }
 ?>

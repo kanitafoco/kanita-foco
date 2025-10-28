@@ -1,11 +1,12 @@
 <?php
-require_once 'config.php';
+require_once 'Database.php'; // ✅ add this line
+require_once 'Config.php';
 
 try {
     $conn = Database::connect();
     echo "<h2 style='color:green'>✅ Connection successful!!</h2>";
 
-    // test query
+    // Test query
     $stmt = $conn->query("SHOW TABLES");
     $tables = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
@@ -18,3 +19,4 @@ try {
     echo $e->getMessage();
 }
 ?>
+
