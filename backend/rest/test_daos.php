@@ -1,52 +1,40 @@
 <?php
-require_once 'dao/UserDao.php';
-require_once 'dao/CategoryDao.php';
-require_once 'dao/ProductDao.php';
-require_once 'dao/OrderDao.php';
-require_once 'dao/OrderItemDao.php';
-require_once 'dao/ReviewDao.php';
+require_once 'dao/UserDAO.php';
+require_once 'dao/CategoryDAO.php';
+require_once 'dao/ProductDAO.php';
+require_once 'dao/OrderDAO.php';
+require_once 'dao/OrderItemDAO.php';
+require_once 'dao/ReviewDAO.php';
 
-// Inicijalizacija DAO objekata
-$userDao = new UserDao();
-$categoryDao = new CategoryDao();
-$productDao = new ProductDao();
-$orderDao = new OrderDao();
-$orderItemDao = new OrderItemDao();
-$reviewDao = new ReviewDao();
+echo "<h2>=== DAO Testing Script ===</h2>";
 
-// --- USERS ---
-echo "<h3>Users:</h3>";
-$user = $userDao->getAll();
-print_r($user);
-echo "<br><br>";
+$userDao = new UserDAO();
+$categoryDao = new CategoryDAO();
+$productDao = new ProductDAO();
+$orderDao = new OrderDAO();
+$orderItemDao = new OrderItemDAO();
+$reviewDao = new ReviewDAO();
 
-// --- CATEGORIES ---
-echo "<h3>Categories:</h3>";
-$categories = $categoryDao->getAll();
-print_r($categories);
-echo "<br><br>";
+function testDAO($name, $dao) {
+    echo "<h3>$name:</h3>";
+    if (method_exists($dao, 'getAll')) {
+        $result = $dao->getAll();
+    } elseif (method_exists($dao, 'getAllOrdered')) {
+        $result = $dao->getAllOrdered();
+    } else {
+        $result = "❌ $name DAO has no getAll() or getAllOrdered() method!";
+    }
+    echo "<pre>";
+    print_r($result);
+    echo "</pre><br><br>";
+}
 
-// --- PRODUCTS ---
-echo "<h3>Products:</h3>";
-$products = $productDao->getAll();
-print_r($products);
-echo "<br><br>";
+testDAO("Users", $userDao);
+testDAO("Categories", $categoryDao);
+testDAO("Products", $productDao);
+testDAO("Orders", $orderDao);
+testDAO("Order Items", $orderItemDao);
+testDAO("Reviews", $reviewDao);
 
-// --- ORDERS ---
-echo "<h3>Orders:</h3>";
-$orders = $orderDao->getAll();
-print_r($orders);
-echo "<br><br>";
-
-// --- ORDER ITEMS ---
-echo "<h3>Order Items:</h3>";
-$orderItems = $orderItemDao->getAll();
-print_r($orderItems);
-echo "<br><br>";
-
-// --- REVIEWS ---
-echo "<h3>Reviews:</h3>";
-$reviews = $reviewDao->getAll();
-print_r($reviews);
-echo "<br><br>";
+echo "<h3 style='color:green;'>✅ DAO Test Script Completed!</h3>";
 ?>
