@@ -1,0 +1,11 @@
+{
+  "require": {
+    "zircote/swagger-php": "^3.3"
+  },
+  "config": {
+    "platform": {
+        "php": "8.0.28"
+    }
+}
+
+}
