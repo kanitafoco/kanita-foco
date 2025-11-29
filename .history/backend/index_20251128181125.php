@@ -43,7 +43,6 @@ Flight::before('start', function() {
        }
    }
 });
-
 // =============================
 // REGISTER SERVICES
 // =============================
