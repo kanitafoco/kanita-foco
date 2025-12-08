@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 
-
 <body>
 <header>
     <!-- Navbar -->
@@ -102,6 +101,20 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/script.js"></script>
 
+<script>
+  $(document).ready(function () {
+    const token = localStorage.getItem("user_token");
+
+    // Ako nema token → na login
+    if (!token) {
+        window.location.replace("login.html");
+        return;
+    }
+
+    // Ako ima token → generiši meni
+    UserService.generateMenuItems();
+  });
+</script>
 
 
 </body>

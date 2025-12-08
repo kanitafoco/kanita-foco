@@ -29,7 +29,7 @@ var UserService = {
         // Spasi token
         localStorage.setItem("user_token", result.data.token);
         // Redirect na početnu
-        window.location.replace("index.html#home");
+        window.location.replace("index.html");
       },
 
       error: function (xhr) {

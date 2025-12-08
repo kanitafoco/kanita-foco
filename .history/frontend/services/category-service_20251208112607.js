@@ -38,7 +38,7 @@ var CategoryService = {
                 }
             ];
     
-            Utils.datatable("categories-table", columns, response);
+            Utils.datatable("categories-table", columns, response.data || response);
         });
     },
 

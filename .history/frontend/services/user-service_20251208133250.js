@@ -4,7 +4,7 @@ var UserService = {
     // Ako je već logovan, šaljemo ga na home
     var token = localStorage.getItem("user_token");
     if (token) {
-      window.location.replace("index.html#home");
+      window.location.replace("index.html");
       return;
     }
 

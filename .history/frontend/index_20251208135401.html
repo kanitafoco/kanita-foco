@@ -102,6 +102,22 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/script.js"></script>
 
+<script>
+  $(document).ready(function () {
+    let token = localStorage.getItem("user_token");
+
+    // Ako nisi na #login, a nema token → redirect na login
+    if (!window.location.hash.includes("login") && !token) {
+        window.location.replace("index.html#login");
+        return;
+    }
+
+    // Ako ima token → generiši meni
+    if (token) {
+        UserService.generateMenuItems();
+    }
+  });
+</script>
 
 
 </body>

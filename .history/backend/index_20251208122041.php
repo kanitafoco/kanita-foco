@@ -1,12 +1,11 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Authentication, Authorization");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
-header("Access-Control-Expose-Headers: Authentication, Authorization");
+header("Access-Control-Allow-Headers: Content-Type, Authentication");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    exit(0);
+    die();
 }
 
 require __DIR__ . '/vendor/autoload.php';
@@ -35,31 +34,12 @@ Flight::route('/', function () {
 
 // AUTH CHECK (GLOBAL MIDDLEWARE)
 Flight::before('start', function() {
-
     $url = Flight::request()->url;
-
-    // rute bez tokena
-    if (
-        strpos($url, '/auth/login') === 0 ||
-        strpos($url, '/auth/register') === 0
-    ) {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         return TRUE;
     }
-
-    try {
-        // prihvati token iz svih mogućih headera
-        $token =
-            Flight::request()->getHeader("Authentication") ??
-            Flight::request()->getHeader("Authorization") ??
-            Flight::request()->getHeader("HTTP_AUTHORIZATION") ??
-            null;
-
-        if (Flight::auth_middleware()->verifyToken($token))
-            return TRUE;
-
-    } catch (Exception $e) {
-        Flight::halt(401, "Unauthorized: " . $e->getMessage());
-    }
+}
+   }
 });
 
 // =============================
@@ -93,8 +73,6 @@ require_once __DIR__ . '/rest/routes/OrderItemRoutes.php';
 require_once __DIR__ . '/rest/routes/ReviewRoutes.php';
 require_once __DIR__ . '/rest/routes/AuthRoutes.php';
 require_once __DIR__ . '/rest/routes/test.php';
-
-
 
 // START APP
 Flight::start();

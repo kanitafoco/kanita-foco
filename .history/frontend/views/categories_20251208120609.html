@@ -6,7 +6,11 @@
   </button>
 
   <table id="categories-table" class="display table table-striped w-100"></table>
-
+  <script>
+    $(function () {
+      CategoryService.init();
+    });
+  </script>
 
   <!-- Add Modal -->
   <div class="modal" id="addCategoryModal">

@@ -4,7 +4,7 @@ var UserService = {
     // Ako je već logovan, šaljemo ga na home
     var token = localStorage.getItem("user_token");
     if (token) {
-      window.location.replace("index.html#home");
+      window.location.replace("index.html");
       return;
     }
 
@@ -29,7 +29,7 @@ var UserService = {
         // Spasi token
         localStorage.setItem("user_token", result.data.token);
         // Redirect na početnu
-        window.location.replace("index.html#home");
+        window.location.replace("index.html");
       },
 
       error: function (xhr) {
@@ -42,7 +42,7 @@ var UserService = {
 
   logout: function () {
     localStorage.clear();
-    window.location.replace("login.html");
+    window.location.replace("index.html#home");
   },
 
   generateMenuItems: function () {
@@ -50,7 +50,7 @@ var UserService = {
     const decoded = Utils.parseJwt(token);
 
     if (!decoded || !decoded.user) {
-      window.location.replace("login.html");
+      window.location.replace("index.html#home");
       return;
     }
 
