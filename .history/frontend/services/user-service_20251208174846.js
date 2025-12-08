@@ -74,4 +74,59 @@ var UserService = {
       UserService.register(entity);
     });
   });
+
+  <section>
+  <div class="form-card card p-4">
+    <h3>Create Account</h3>
+    <form id="registerForm">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input class="form-control" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" type="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" name="password" required>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <button class="btn btn-success">Register</button>
+      </div>
+    </form>
+    <div class="text-center mt-3 small text-muted">
+      Already have an account? <a href="#login" data-route="login">Login</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="container py-5" style="max-width: 450px; margin: 0 auto;">
+  <div class="card p-4 shadow-sm">
+    <h3 class="text-center mb-4">Login</h3>
+
+    <form id="loginForm">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" type="email" name="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" name="password" required>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit">Login</button>
+    </form>
+
+    <div class="text-center mt-3 small text-muted">
+      Don’t have an account? <a href="#register">Register</a>
+    </div>
+  </div>
+</section>
+
+
+LOGIN.HTML
   
