@@ -79,10 +79,6 @@ function attachAuthForms() {
   }
 }
 
-
-
-
-
 var App = {
 
   generateMenuItems: function () {

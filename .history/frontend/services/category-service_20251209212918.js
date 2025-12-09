@@ -71,8 +71,7 @@ var CategoryService = {
             $("#edit_name").val(c.name);
             $("#edit_description").val(c.description);
 
-            var modal = new bootstrap.Modal(document.getElementById("editCategoryModal"));
-modal.show();
+            $("#editCategoryModal").modal("show");
         });
     },
 

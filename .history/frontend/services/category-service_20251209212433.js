@@ -40,7 +40,7 @@ var CategoryService = {
                     title: "Actions",
                     render: function (row) {
                         return `
-                        <button class="btn btn-warning btn-sm edit-category-btn" data-id="${row.category_id}">Edit</button>
+                            <button class="btn btn-warning btn-sm" onclick="CategoryService.openEditModal(${row.category_id})">Edit</button>
                             <button class="btn btn-danger btn-sm" onclick="CategoryService.openDeleteModal(${row.category_id})">Delete</button>
                         `;
                     }
@@ -71,8 +71,7 @@ var CategoryService = {
             $("#edit_name").val(c.name);
             $("#edit_description").val(c.description);
 
-            var modal = new bootstrap.Modal(document.getElementById("editCategoryModal"));
-modal.show();
+            $("#editCategoryModal").modal("show");
         });
     },
 

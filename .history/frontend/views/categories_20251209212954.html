@@ -50,7 +50,6 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save</button>
           </div>
-          
   
         </form>
   
@@ -79,5 +78,10 @@
   });
 </script>
 
-
+<script>
+  $(document).on("click", ".edit-category-btn", function () {
+      const id = $(this).data("id");
+      CategoryService.openEditModal(id);
+  });
+  </script>
   

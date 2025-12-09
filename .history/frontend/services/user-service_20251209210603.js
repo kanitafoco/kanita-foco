@@ -85,51 +85,41 @@ var UserService = {
   
     // NAVBAR UPDATE
     updateNavbar: function () {
-        const token = localStorage.getItem("user_token");
-        const userInfo = localStorage.getItem("user_info");
-      
-        console.log("updateNavbar ->", { token, userInfo });
-      
-        if ($("#authButtonsContainer").length === 0) {
-          setTimeout(() => UserService.updateNavbar(), 100);
-          return;
-        }
-      
-        if (token && userInfo) {
-          // USER JE LOGINAN
-          $("#authButtonsContainer")
-            .addClass("d-none")
-            .removeClass("d-flex");
-      
-          $("#logoutButtonContainer")
-            .removeClass("d-none")
-            .addClass("d-flex");
-      
-          const user = JSON.parse(userInfo);
-          $("#userDisplay").text(user.email || "User");
-      
-          // 🔥 ROLE-BASED MENI
-          if (user.role === "customer") {
-              $("#navCategories").hide();
-          } else if (user.role === "admin") {
-              $("#navCategories").show();
-          }
-      
-        } else {
-          // USER NIJE LOGINAN
-          $("#authButtonsContainer")
-            .removeClass("d-none")
-            .addClass("d-flex");
-      
-          $("#logoutButtonContainer")
-            .addClass("d-none")
-            .removeClass("d-flex");
-      
-          // Prije login-a: Categories treba biti vidljiv
-          $("#navCategories").show();
-        }
-      },
-      
+      const token = localStorage.getItem("user_token");
+      const userInfo = localStorage.getItem("user_info");
+  
+      console.log("updateNavbar ->", { token, userInfo });
+  
+      // Retry dok navbar ne bude učitan
+      if ($("#authButtonsContainer").length === 0) {
+        setTimeout(() => UserService.updateNavbar(), 100);
+        return;
+      }
+  
+      if (token && userInfo) {
+        // USER JE LOGOVAN
+        $("#authButtonsContainer")
+          .addClass("d-none")
+          .removeClass("d-flex");
+  
+        $("#logoutButtonContainer")
+          .removeClass("d-none")
+          .addClass("d-flex");
+  
+        const user = JSON.parse(userInfo);
+        $("#userDisplay").text(user.email || "User");
+  
+      } else {
+        // USER NIJE LOGINAN
+        $("#authButtonsContainer")
+          .removeClass("d-none")
+          .addClass("d-flex");
+  
+        $("#logoutButtonContainer")
+          .addClass("d-none")
+          .removeClass("d-flex");
+      }
+    },
   
   
     isLoggedIn: function () {
