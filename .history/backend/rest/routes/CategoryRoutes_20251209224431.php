@@ -27,7 +27,7 @@ Flight::route("GET /categories", function(){
  *     @OA\Response(response=400, description="Invalid ID.")
  * )
  */
-Flight::route("GET /category/@id", function($id){
+Flight::route("GET /categor/@id", function($id){
     Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
     Flight::json(Flight::category_service()->get_by_id($id));
 });
@@ -51,7 +51,7 @@ Flight::route("GET /category/@id", function($id){
  *     @OA\Response(response=500, description="Internal server error.")
  * )
  */
-Flight::route("POST /categories", function(){
+Flight::route("POST /category", function(){
     Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     Flight::json([

@@ -109,3 +109,5 @@ var CategoryService = {
         $(".modal").modal("hide");
     }
 };
+
+Samo uporedi svoej i moje. Jer si modifikovala prikaz kategorija

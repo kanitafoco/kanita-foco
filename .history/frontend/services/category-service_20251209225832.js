@@ -109,3 +109,4 @@ var CategoryService = {
         $(".modal").modal("hide");
     }
 };
+

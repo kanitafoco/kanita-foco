@@ -5,7 +5,7 @@
       Add Category
   </button>
 
-  <div id="adminCategorySection"></div>
+  <div id="adminCategorySection">
 
   <table id="categories-table" class="display table table-striped w-100"></table>
 
@@ -75,6 +75,16 @@
   </div>
 </div>
 
+</div>
+
+
+<!-- NON-ADMIN message -->
+<div id="notAdminMessage" class="alert alert-danger d-none">
+    You are not allowed to view this page.
+</div>
+
+</div>
+
 
 <script>
   $(function () {
@@ -82,5 +92,10 @@
   });
 </script>
 
-
+<script>
+  $(document).on("click", ".edit-category-btn", function () {
+      const id = $(this).data("id");
+      CategoryService.openEditModal(id);
+  });
+</script>
   

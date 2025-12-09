@@ -51,7 +51,7 @@ Flight::route("GET /category/@id", function($id){
  *     @OA\Response(response=500, description="Internal server error.")
  * )
  */
-Flight::route("POST /categories", function(){
+Flight::route("POST /category", function(){
     Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     Flight::json([
@@ -79,7 +79,7 @@ Flight::route("POST /categories", function(){
  *     @OA\Response(response=500, description="Server error.")
  * )
  */
-Flight::route("PATCH /category/@id", function($id){
+Flight::route("PATCH /categories/@id", function($id){
     Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     Flight::json([

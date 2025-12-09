@@ -11,6 +11,7 @@
  * )
  */
 Flight::route("GET /categories", function(){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
     Flight::json(Flight::category_service()->get_all());
 });
 
@@ -27,6 +28,7 @@ Flight::route("GET /categories", function(){
  * )
  */
 Flight::route("GET /category/@id", function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
     Flight::json(Flight::category_service()->get_by_id($id));
 });
 
@@ -49,7 +51,8 @@ Flight::route("GET /category/@id", function($id){
  *     @OA\Response(response=500, description="Internal server error.")
  * )
  */
-Flight::route("POST /category", function(){
+Flight::route("POST /categories", function(){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     Flight::json([
         'message' => "Category added successfully!",
@@ -77,10 +80,11 @@ Flight::route("POST /category", function(){
  * )
  */
 Flight::route("PATCH /category/@id", function($id){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     Flight::json([
         'message' => "Category updated successfully!",
-        'data' => Flight::category_service()->update($data, $id, 'id')
+        'data' => Flight::category_service()->update($id, $data)
     ]);
 });
 
@@ -96,6 +100,7 @@ Flight::route("PATCH /category/@id", function($id){
  * )
  */
 Flight::route("DELETE /category/@id", function($id){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     Flight::category_service()->delete($id);
     Flight::json(['message'=>"Category deleted successfully."]);
 });

@@ -40,7 +40,7 @@ var CategoryService = {
                     title: "Actions",
                     render: function (row) {
                         return `
-                            <button class="btn btn-warning btn-sm" onclick="CategoryService.openEditModal(${row.category_id})">Edit</button>
+                            <button class="btn btn-warning btn-sm edit-category-btn" data-id="${row.category_id}">Edit</button>
                             <button class="btn btn-danger btn-sm" onclick="CategoryService.openDeleteModal(${row.category_id})">Delete</button>
                         `;
                     }
@@ -64,27 +64,27 @@ var CategoryService = {
     },
 
     openEditModal: function (id) {
-    RestClient.get("category/" + id, function (response) {
-        console.log("openEditModal response:", response);
-
-        const c = response.data || response;
-
-        $("#edit_category_id").val(c.category_id);
-        $("#edit_name").val(c.name);
-        $("#edit_description").val(c.description);
-
-        $("#editCategoryModal").modal("show");
-    });
-},
-
-
-    updateCategory: function (id, data) {
-        RestClient.patch("category/" + id, data, function () {
-            toastr.success("Updated!");
-            CategoryService.loadCategories();
-            CategoryService.closeModal();
+        RestClient.get("category/" + id, function (response) {
+            console.log("openEditModal response:", response);
+    
+            const c = response.data || response;
+    
+            $("#edit_category_id").val(c.category_id);
+            $("#edit_name").val(c.name);
+            $("#edit_description").val(c.description);
+    
+            $("#editCategoryModal").modal("show");
         });
     },
+    
+    
+        updateCategory: function (id, data) {
+            RestClient.patch("category/" + id, data, function () {
+                toastr.success("Updated!");
+                CategoryService.loadCategories();
+                CategoryService.closeModal();
+            });
+        },
 
     openDeleteModal: function (id) {
         $("#delete_category_id").val(id);
@@ -92,19 +92,18 @@ var CategoryService = {
     },
 
     deleteCategory: function () {
-    let id = $("#delete_category_id").val();
-
-    RestClient.delete("category/" + id, {}, function () {
-        toastr.success("Deleted!");
-        CategoryService.loadCategories();
-        CategoryService.closeModal();
-    }, function (err) {
-        console.log("Delete failed:", err);
-        toastr.error("Delete failed!");
-    });
-},
-
-
+        let id = $("#delete_category_id").val();
+    
+        RestClient.delete("category/" + id, {}, function () {
+            toastr.success("Deleted!");
+            CategoryService.loadCategories();
+            CategoryService.closeModal();
+        }, function (err) {
+            console.log("Delete failed:", err);
+            toastr.error("Delete failed!");
+        });
+    },
+    
     closeModal: function () {
         $(".modal").modal("hide");
     }
