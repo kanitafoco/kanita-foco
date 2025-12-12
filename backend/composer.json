@@ -1,8 +1,12 @@
 {
-    "require": {
-      "doctrine/annotations": "^1.14",
-      "symfony/finder": "^5.4",
-      "zircote/swagger-php": "^3.3"
+  "require": {
+    "zircote/swagger-php": "^3.3",
+    "mikecao/flight": "^3.17",
+    "firebase/php-jwt": "^6.11"
+  },
+  "config": {
+    "platform": {
+      "php": "8.0.28"
     }
   }
-  
+}

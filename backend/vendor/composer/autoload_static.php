@@ -4,19 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52
+class ComposerStaticInitfe8b679e49d2914491270c258cbc0640
 {
     public static $files = array (
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        'fc73bab8d04e21bcdda37ca319c63800' => __DIR__ . '/..' . '/mikecao/flight/flight/autoload.php',
         '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Finder\\' => 25,
@@ -30,6 +28,10 @@ class ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52
         array (
             'OpenApi\\' => 8,
         ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
         'D' => 
         array (
             'Doctrine\\Deprecations\\' => 22,
@@ -39,10 +41,6 @@ class ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Polyfill\\Php80\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
@@ -67,6 +65,10 @@ class ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52
         array (
             0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'Doctrine\\Deprecations\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/deprecations/src',
@@ -82,20 +84,15 @@ class ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52
     );
 
     public static $classMap = array (
-        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
-        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
-        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
-        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit803c821eb6d6775f0e26258c5e31cc52::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfe8b679e49d2914491270c258cbc0640::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfe8b679e49d2914491270c258cbc0640::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitfe8b679e49d2914491270c258cbc0640::$classMap;
 
         }, null, ClassLoader::class);
     }

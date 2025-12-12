@@ -1,0 +1,102 @@
+<div class="container py-4">
+  <h1 class="mb-4">Categories</h1>
+
+  <button class="btn btn-primary mb-3" onclick="CategoryService.openAddModal()">
+      Add Category
+  </button>
+
+  <div id="adminCategorySection">
+
+  <table id="categories-table" class="display table table-striped w-100"></table>
+
+
+  <!-- Add Modal -->
+  <div class="modal" id="addCategoryModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+          <form id="addCategoryForm">
+              <div class="modal-header"><h5 class="modal-title">Add Category</h5></div>
+              <div class="modal-body">
+                  <input class="form-control mb-2" name="name" placeholder="Name" required>
+                  <input class="form-control mb-2" name="description" placeholder="Description" required>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="CategoryService.closeModal()">Close</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+          </form>
+       </div>
+     </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <form id="editCategoryForm">
+  
+          <input type="hidden" id="edit_category_id" name="category_id">
+  
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Category</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+  
+          <div class="modal-body">
+            <input class="form-control mb-2" id="edit_name" name="name" placeholder="Name" required>
+            <input class="form-control mb-2" id="edit_description" name="description" placeholder="Description" required>
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+          
+  
+        </form>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal" id="deleteCategoryModal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <input type="hidden" id="delete_category_id">
+              <div class="modal-body">Are you sure you want to delete this category?</div>
+              <div class="modal-footer">
+                  <button class="btn btn-secondary" onclick="CategoryService.closeModal()">Close</button>
+                  <button class="btn btn-danger" onclick="CategoryService.deleteCategory()">Delete</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+<!-- NON-ADMIN message -->
+<div id="notAdminMessage" class="alert alert-danger d-none">
+    You are not allowed to view this page.
+</div>
+
+</div>
+
+
+<script>
+  $(function () {
+    CategoryService.init();
+  });
+</script>
+
+<script>
+  $(document).on("click", ".edit-category-btn", function () {
+      const id = $(this).data("id");
+      CategoryService.openEditModal(id);
+  });
+</script>
+  
