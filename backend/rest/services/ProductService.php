@@ -30,11 +30,12 @@ class ProductService {
         $db = Database::connect();
         $stmt = $db->prepare("DELETE FROM reviews WHERE product_id = :id");
         $stmt->execute(['id' => $id]);
+
         return $this->dao->delete($id, 'product_id');
     }
 
     public function get_by_category_id($category_id) {
         return $this->dao->getByCategory($category_id);
     }
-    
 }
+
