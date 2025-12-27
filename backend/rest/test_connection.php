@@ -1,6 +1,6 @@
 <?php
-require_once 'Database.php'; // ✅ add this line
-require_once 'Config.php';
+require_once __DIR__ . '/../Config.php';
+require_once __DIR__ . '/Database.php';
 
 try {
     $conn = Database::connect();
