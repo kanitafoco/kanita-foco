@@ -27,16 +27,16 @@ class AuthService extends BaseService {
         $entity['full_name'] = "New User";
     }
 
-    // prepare password hash
+    
     $entity['password_hash'] = password_hash($entity['password'], PASSWORD_BCRYPT);
     unset($entity['password']);
 
-    // default role
+    
     if (!isset($entity['role'])) {
         $entity['role'] = 'customer';
     }
 
-    // insert into DB
+    
     $new_user_id = parent::add($entity);
 
     return [
@@ -59,7 +59,7 @@ public function login($entity) {
 
     unset($user['password_hash']);
 
-    // convert array → object
+    
     $user = (object) $user;
 
     $jwt_payload = [

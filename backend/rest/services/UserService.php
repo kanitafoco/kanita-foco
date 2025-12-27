@@ -25,7 +25,7 @@ class UserService {
             ];
         }
     
-        // Check email uniqueness
+        
         if ($this->dao->getByEmail($data['email'])) {
             $data['email'] = $data['email'] . "_dup_" . rand(1000,9999);
         }
@@ -38,7 +38,7 @@ class UserService {
     public function delete($id) { 
         $db = Database::connect();
 
-    // 1️⃣ obriši sve order_item-e za userove narudžbe
+    
     $stmt = $db->prepare("SELECT order_id FROM orders WHERE user_id = :uid");
     $stmt->execute(['uid' => $id]);
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -46,16 +46,16 @@ class UserService {
     foreach ($orders as $order) {
         $oid = $order['order_id'];
 
-        // obriši order_items
+        
         $delItems = $db->prepare("DELETE FROM order_items WHERE order_id = :oid");
         $delItems->execute(['oid' => $oid]);
     }
 
-    // 2️⃣ obriši sve narudžbe korisnika
+    
     $deleteOrders = $db->prepare("DELETE FROM orders WHERE user_id = :uid");
     $deleteOrders->execute(['uid' => $id]);
 
-    // 3️⃣ sada je sigurno obrisati usera
+    
     $this->dao->delete($id, 'user_id');
 
     return [

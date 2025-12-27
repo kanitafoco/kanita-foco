@@ -1,5 +1,6 @@
 <?php
 
+
 require_once __DIR__ . '/../dao/OrderDAO.php';
 
 class OrderService {
@@ -18,9 +19,9 @@ class OrderService {
     }
 
     public function get_by_user_id($user_id){
-        $orders = $this->dao->getAll(); // uzmi sve narudžbe
+        $orders = $this->dao->getAll(); 
 
-    // filtriraj samo one koje pripadaju useru
+    
     return array_values(array_filter($orders, function($order) use ($user_id){
         return $order['user_id'] == $user_id;
     }));
@@ -29,20 +30,20 @@ class OrderService {
     public function add($data){
         $db = Database::connect();
 
-    // ako frontend pošalje user_id koji NE POSTOJI → uzmi jednog koji postoji
+    
     $userCheck = $db->prepare("SELECT user_id FROM users WHERE user_id = :uid");
     $userCheck->execute(['uid' => $data['user_id']]);
     $exists = $userCheck->fetch();
 
     if (!$exists) {
-        // uzmi postojeceg korisnika
+        
         $fallback = $db->query("SELECT user_id FROM users LIMIT 1")->fetch();
 
         if (!$fallback) {
             throw new Exception("Cannot create order because no users exist in the database.");
         }
 
-        // zamijeni nepostojeći user_id onim koji backend zaista ima
+        
         $data['user_id'] = $fallback['user_id'];
     }
         return $this->dao->add($data);
