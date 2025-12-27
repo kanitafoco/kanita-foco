@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../dao/ProductDAO.php';
+require_once __DIR__ . '/../Database.php';
 
 class ProductService {
     private $dao;
