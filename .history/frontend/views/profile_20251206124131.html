@@ -1,0 +1,23 @@
+<section>
+  <h2>My Profile</h2>
+  <p class="text-muted">Profile details</p>
+  <div class="card p-3" style="max-width:720px">
+
+    <div class="d-flex gap-3 align-items-center">
+      <img src="assets/images/user-placeholder.png" class="avatar" alt="user">
+      <div>
+        <h5 id="profile-name"></h5>
+        <p class="small text-muted" id="profile-email"></p>
+      </div>
+    </div>
+
+    <hr>
+    <h6>Recent Orders</h6>
+    <ul class="list-group" id="profile-orders"></ul>
+
+  </div>
+</section>
+
+<script>
+  ProfileService.init();
+</script>
