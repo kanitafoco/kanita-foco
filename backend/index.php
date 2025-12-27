@@ -11,34 +11,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 require __DIR__ . '/vendor/autoload.php';
 
-// MIDDLEWARE & CONFIG
+
 require_once __DIR__ . '/middleware/AuthMiddleware.php';
 require_once __DIR__ . '/data/Roles.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-// ERROR REPORTING
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// REGISTER MIDDLEWARE
+
 Flight::register('auth_middleware', 'AuthMiddleware');
 
-// DEFAULT ROUTE
 
-Flight::route('/', function () {
 
-    echo 'Hello world!';
-    
-    });
 
-// AUTH CHECK (GLOBAL MIDDLEWARE)
 Flight::before('start', function() {
 
     $url = Flight::request()->url;
 
-    // rute bez tokena
+    
     if (
         strpos($url, '/auth/login') === 0 ||
         strpos($url, '/auth/register') === 0
@@ -47,7 +41,8 @@ Flight::before('start', function() {
     }
 
     try {
-        // prihvati token iz svih mogućih headera
+
+        
         $token =
             Flight::request()->getHeader("Authentication") ??
             Flight::request()->getHeader("Authorization") ??

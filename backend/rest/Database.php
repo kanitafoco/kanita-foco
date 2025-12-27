@@ -5,7 +5,7 @@ class Database {
 
     private static $connection;
 
-    // Create and return a PDO connection
+    
     public static function connect() {
         if (!self::$connection) {
             try {

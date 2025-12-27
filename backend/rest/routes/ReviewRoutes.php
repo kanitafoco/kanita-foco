@@ -1,4 +1,5 @@
 <?php
+
 // Get all reviews
 /**
  * @OA\Get(

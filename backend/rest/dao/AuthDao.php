@@ -17,3 +17,4 @@ class AuthDao extends BaseDAO {
        return $this->query_unique($query, ['email' => $email]);
    }
 }
+

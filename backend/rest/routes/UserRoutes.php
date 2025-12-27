@@ -1,4 +1,5 @@
 <?php
+
 // Get all users
 /**
  * @OA\Get(

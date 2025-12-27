@@ -5,29 +5,26 @@ error_reporting(E_ALL ^ (E_NOTICE | E_DEPRECATED));
 
 class Config {
     public static function DB_NAME() {
-        return "milestone2_db_production";
+        return Config::get_env("DB_NAME", "milestone2_db_production");
     }
-
     public static function DB_PORT() {
-        return 3306;
+        return Config::get_env("DB_PORT", 3306);
     }
-
     public static function DB_USER() {
-        return "root";
+        return Config::get_env("DB_USER", "root");
     }
-
     public static function DB_PASSWORD() {
-        return "root"; 
+        return Config::get_env("DB_PASSWORD", "");
     }
-
     public static function DB_HOST() {
-        return "127.0.0.1";
+        return Config::get_env("DB_HOST", "127.0.0.1");
     }
-
-    // JWT Secret Key Definition
     public static function JWT_SECRET() {
-        return 'my_super_secret_key';
+        return Config::get_env("JWT_SECRET", "my_super_secret_key");
     }
-
-}
+    public static function get_env($name, $default){
+        return isset($_ENV[$name]) && trim($_ENV[$name]) != "" ? $_ENV[$name] : $default;
+    }
+ }
+ 
 ?>
