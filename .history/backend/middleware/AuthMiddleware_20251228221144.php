@@ -51,5 +51,4 @@ use Firebase\JWT\Key;
             }
         }
         
-
-    }
+        
